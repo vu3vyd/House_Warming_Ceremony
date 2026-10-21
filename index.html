@@ -14,6 +14,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mukta+Malar:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Show the cover as a full-screen panel until "Tap to open". If app.js
+       never starts, open it anyway after a few seconds so the page is usable. -->
+  <script>
+    document.documentElement.className += ' js cover-open';
+    window.coverFallback = setTimeout(function () { document.documentElement.classList.remove('cover-open'); }, 6000);
+  </script>
 </head>
 <body>
 
@@ -54,8 +60,8 @@
     <div class="cover-inner">
       <p class="eyebrow" data-i18n="withBlessings">இறையருளுடன்</p>
       <h1 class="cover-title">
-        <span class="title-ta">🏡புது இல்லம் புகும் இனிய விழா!</span>
-        <span class="title-en">🏡House-Warming Function</span>
+        <span class="title-ta">புது இல்லம் புகும் இனிய விழா!</span>
+        <span class="title-en">House-Warming Function</span>
       </h1>
       <div class="lamps" aria-hidden="true">
         <svg class="lamp"><use href="#lamp"/></svg>
@@ -160,6 +166,12 @@
       <p class="hashtag" data-c="hashtag"></p>
     </footer>
   </main>
+
+  <!-- Celebrate: flowers and fireworks -->
+  <button class="celebrate-btn" id="celebrateBtn" type="button">
+    <span class="celebrate-icon" aria-hidden="true">🎉</span>
+    <span data-i18n="celebrate">கொண்டாடுவோம்</span>
+  </button>
 
   <!-- Music toggle -->
   <button class="music-btn" id="musicBtn" type="button" hidden aria-pressed="false" aria-label="Music">♪</button>

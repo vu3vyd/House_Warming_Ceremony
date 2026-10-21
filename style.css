@@ -43,7 +43,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid rgba(224, 163, 26, .7);
   background: rgba(255, 250, 240, .92); color: var(--leaf);
   font: 600 14px var(--sans); cursor: pointer;
-  backdrop-filter: blur(6px); box-shadow: 0 4px 14px rgba(0,0,0,.12);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); box-shadow: 0 4px 14px rgba(0,0,0,.12);
 }
 .lang-toggle .sep { opacity: .35; }
 .lang-toggle [data-lang-label] { opacity: .5; }
@@ -182,7 +182,7 @@ html[lang="ta"] .event-title { font-family: var(--serif-ta); font-size: 19px; fo
 .btn.whatsapp { background: #1f8f4e; border-color: #1f8f4e; color: #fff; margin: 10px 0; }
 .btn.wide { width: 100%; min-height: 48px; font-size: 16px; }
 .btn:disabled { opacity: .6; cursor: progress; }
-.btn:focus-visible, input:focus-visible, textarea:focus-visible, .open-btn:focus-visible, .lang-toggle:focus-visible {
+.btn:focus-visible, input:focus-visible, textarea:focus-visible, .open-btn:focus-visible, .lang-toggle:focus-visible, .celebrate-btn:focus-visible {
   outline: 3px solid var(--marigold); outline-offset: 2px;
 }
 
@@ -208,9 +208,54 @@ html[lang="ta"] .venue-name { font-family: var(--serif-ta); font-size: 19px; }
 html[lang="ta"] .footer-hosts { font-family: var(--serif-ta); font-size: 17px; }
 .hashtag { font-size: 13px; color: var(--kumkum); font-weight: 600; }
 
+/* ---------- Cover as a full-screen panel (only when JavaScript runs) ---------- */
+/* Fixed + inset:0 always matches the visible screen, including on iPhone Safari
+   where the toolbars change the height. */
+html.js .cover {
+  position: fixed; inset: 0; z-index: 40; min-height: 0;
+  overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+  justify-content: flex-start; cursor: pointer;
+}
+html.js .cover-inner { margin: auto 0; } /* centres, but never cuts off the top on short screens */
+html.js .cover-kolam { bottom: 0; height: 120px; border-bottom: 0; border-radius: 210px 210px 0 0 / 120px 120px 0 0; }
+html.js.cover-open, html.js.cover-open body { overflow: hidden; }
+html.js:not(.cover-open) .cover:not(.leaving) { display: none; }
+.cover.leaving {
+  transform: translateY(-100%); opacity: .2; pointer-events: none;
+  transition: transform .65s cubic-bezier(.65, 0, .35, 1), opacity .65s ease;
+}
+
+/* ---------- Celebrate button ---------- */
+.celebrate-btn {
+  position: fixed; z-index: 42;
+  right: calc(16px + env(safe-area-inset-right)); bottom: max(18px, env(safe-area-inset-bottom));
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 50px; padding: 10px 18px 10px 14px; border-radius: 999px; cursor: pointer;
+  border: 2px solid rgba(246, 215, 138, .9);
+  background: linear-gradient(180deg, #b52a38, #7f1522); color: #fff4dc;
+  font: 700 15px var(--sans); letter-spacing: .02em;
+  box-shadow: 0 8px 22px rgba(127, 21, 34, .45), 0 0 0 0 rgba(240, 140, 26, .55);
+  animation: glowPulse 2.4s ease-in-out infinite;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none;
+}
+.celebrate-btn:active { transform: scale(.95); }
+.celebrate-icon { font-size: 22px; line-height: 1; }
+html.cover-open .celebrate-btn { display: none; }
+@keyframes glowPulse {
+  50% { box-shadow: 0 8px 22px rgba(127, 21, 34, .45), 0 0 0 10px rgba(240, 140, 26, 0); }
+}
+
+/* ---------- Fireworks ---------- */
+.fireworks {
+  position: fixed; inset: 0; width: 100%; height: 100%; z-index: 44; pointer-events: none;
+  background: rgba(14, 10, 28, .45); opacity: 0; transition: opacity .5s ease;
+}
+.fireworks.on { opacity: 1; }
+
 /* ---------- Music ---------- */
 .music-btn {
-  position: fixed; right: 16px; bottom: max(18px, env(safe-area-inset-bottom)); z-index: 40;
+  /* sits above the Celebrate button */
+  position: fixed; right: calc(16px + env(safe-area-inset-right)); bottom: calc(max(18px, env(safe-area-inset-bottom)) + 64px); z-index: 42;
   width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
   border: 2px solid rgba(224,163,26,.8); background: var(--leaf); color: #ffe7a6;
   font-size: 22px; box-shadow: 0 8px 20px rgba(0,0,0,.25);
@@ -239,7 +284,8 @@ html[lang="ta"] .footer-hosts { font-family: var(--serif-ta); font-size: 17px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .chev { animation: none; }
+  .chev, .celebrate-btn { animation: none; }
+  .cover.leaving { transition-duration: .2s; }
 }
 @media (min-width: 720px) {
   .invite { padding-top: 48px; }

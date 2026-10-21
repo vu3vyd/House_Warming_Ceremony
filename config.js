@@ -19,8 +19,8 @@ window.INVITE = {
   },
   // Name of the house, if it has one. Leave both "" to hide.
   houseName: {
-    en: "F28, Kubhera Vistas",
-    ta: "F28, குபேரா விஸ்டாஸ்",
+    en: "",
+    ta: "",
   },
 
   // ---- Invitation message ---------------------------------------------------
@@ -50,7 +50,7 @@ window.INVITE = {
 
   // ---- Venue (your new home) -----------------------------------------------
   venue: {
-    name:    { en: "🏡F28, Kubhera Vistas", ta: "🏡F28, குபேரா விஸ்டாஸ்" },
+    name:    { en: "F28, Kubhera Vistas", ta: "F28, குபேரா விஸ்டாஸ்" },
     address: { en: "College Road, Saravanampatti, Coimbatore – 641035",
                ta: "காலேஜ் ரோடு, சரவணம்பட்டி, கோயம்புத்தூர் – 641035" },
     // Best: exact coordinates, because new houses are often not on Google Maps yet.

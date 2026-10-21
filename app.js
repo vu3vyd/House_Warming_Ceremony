@@ -23,6 +23,7 @@
       directions: 'Directions to Kubhera Vistas',
       callUs: 'Call us',
       photos: 'Photos',
+      celebrate: 'Celebrate',
       footerThanks: 'Your presence is our greatest blessing.',
       share: 'Share on WhatsApp',
       shareText: 'You are warmly invited to our House-warming Function on {date}. Timings & location:',
@@ -42,6 +43,7 @@
       directions: 'குபேரா விஸ்டாஸ் செல்லும் வழி',
       callUs: 'அழைக்க',
       photos: 'புகைப்படங்கள்',
+      celebrate: 'கொண்டாடுவோம்',
       footerThanks: 'உங்கள் வருகையே எங்களுக்குப் பெரும் ஆசீர்வாதம்.',
       share: 'வாட்ஸ்அப்பில் பகிர',
       shareText: '{date} அன்று நடைபெறும் எங்கள் புதுமனை புகுவிழாவிற்கு உங்களை அன்புடன் அழைக்கிறோம். நேரம் மற்றும் இடம்:',
@@ -272,11 +274,14 @@
   }
   function pauseMusic() { if (audio) { audio.pause(); $('#musicBtn').setAttribute('aria-pressed', 'false'); } }
 
+  // Effects only run when a guest taps, so they still play with "Reduce Motion"
+  // turned on, just lighter.
+  function reducedMotion() { return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
+
   function petals() {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var colors = ['#f08c1a', '#f6b71b', '#e3a81b', '#d9442b', '#fff1c4', '#c2185b'];
     var box = el('div', 'petals');
-    for (var i = 0; i < 42; i++) {
+    for (var i = 0, n = reducedMotion() ? 16 : 42; i < n; i++) {
       var p = el('span', 'petal');
       var size = 10 + Math.random() * 10;
       p.style.left = Math.random() * 100 + 'vw';
@@ -293,19 +298,85 @@
     setTimeout(function () { box.remove(); }, 8000);
   }
 
+  /* Fireworks: bursts of glowing sparks on a canvas over the whole screen. */
+  var fw = null;
+  function fireworks() {
+    if (!fw) {
+      var c = el('canvas', 'fireworks');
+      c.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(c);
+      fw = { c: c, ctx: c.getContext('2d'), sparks: [], until: 0, running: false };
+    }
+    var colors = ['#ffd45e', '#f08c1a', '#ff5a5f', '#ff7ad9', '#9ef0ff', '#fff4d6', '#7dff9a'];
+    var W = window.innerWidth, H = window.innerHeight;
+    var bursts = reducedMotion() ? 3 : 9;
+    for (var b = 0; b < bursts; b++) {
+      setTimeout(function () {
+        var x = W * (0.12 + Math.random() * 0.76), y = H * (0.12 + Math.random() * 0.5);
+        var col = colors[Math.floor(Math.random() * colors.length)];
+        for (var i = 0, n = 46 + Math.floor(Math.random() * 20); i < n; i++) {
+          var a = Math.PI * 2 * i / n, v = 2.2 + Math.random() * 2.8;
+          fw.sparks.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1,
+            decay: 0.012 + Math.random() * 0.01, col: Math.random() < 0.15 ? '#fff4d6' : col });
+        }
+      }, b * 330 + Math.random() * 200);
+    }
+    fw.until = Date.now() + bursts * 330 + 2500;
+    fw.c.classList.add('on');
+    if (!fw.running) { fw.running = true; requestAnimationFrame(frame); }
+  }
+  function frame() {
+    var c = fw.c, ctx = fw.ctx, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = window.innerWidth, h = window.innerHeight;
+    if (c.width !== Math.round(w * dpr) || c.height !== Math.round(h * dpr)) {
+      c.width = Math.round(w * dpr); c.height = Math.round(h * dpr);
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+    // Time-based steps, so 60 Hz and 120 Hz (ProMotion iPhone) screens look the same.
+    var now = performance.now(), k = Math.min(3, (now - (fw.last || now - 16.7)) / 16.7);
+    fw.last = now;
+    var drag = Math.pow(0.985, k);
+    fw.sparks = fw.sparks.filter(function (s) {
+      s.vx *= drag; s.vy = s.vy * drag + 0.045 * k; s.x += s.vx * k; s.y += s.vy * k; s.life -= s.decay * k;
+      if (s.life <= 0) return false;
+      ctx.globalAlpha = s.life * 0.55;
+      ctx.fillStyle = s.col;
+      ctx.beginPath(); ctx.arc(s.x, s.y, 3.5 * s.life + 1.5, 0, Math.PI * 2); ctx.fill(); // glow
+      ctx.globalAlpha = Math.min(1, s.life * 1.4);
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(s.x, s.y, 1.3, 0, Math.PI * 2); ctx.fill();           // hot core
+      return true;
+    });
+    ctx.globalAlpha = 1;
+    if (fw.sparks.length || Date.now() < fw.until) { requestAnimationFrame(frame); return; }
+    fw.running = false;
+    fw.last = 0;
+    fw.c.classList.remove('on');
+  }
+
+  function celebrate() {
+    petals();
+    fireworks();
+  }
+
   function setupCover() {
+    clearTimeout(window.coverFallback);
+    var root = document.documentElement;
+    var cover = $('#cover');
     function open() {
+      if (!root.classList.contains('cover-open')) return;
       petals();
       playMusic();
-      var main = $('#main');
-      main.scrollIntoView({ behavior: 'smooth' });
-      // Some phone browsers drop a smooth scroll when the page shifts (fonts,
-      // the hero GIF loading), so finish the jump if it didn't get there.
-      setTimeout(function () {
-        if (Math.abs(main.getBoundingClientRect().top) > 40) main.scrollIntoView({ behavior: 'instant' });
-      }, 1200);
+      window.scrollTo(0, 0);
+      cover.classList.add('leaving');
+      root.classList.remove('cover-open');
+      setTimeout(function () { cover.classList.remove('leaving'); }, 700);
     }
-    $('#openBtn').addEventListener('click', open);
+    // The whole cover is tappable, not just the button.
+    cover.addEventListener('click', function (e) { if (!e.target.closest('.lang-toggle')) open(); });
   }
 
   function setupShare() {
@@ -333,6 +404,7 @@
   setupLightbox();
   setupMusic();
   setupCover();
+  $('#celebrateBtn').addEventListener('click', celebrate);
   setupShare();
   setupLang();
   tick();
