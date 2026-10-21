@@ -20,40 +20,12 @@
       addGoogle: 'Google Calendar',
       addIcs: 'Add to phone calendar',
       venue: 'Venue',
-      directions: 'Get directions',
+      directions: 'Directions to Kubhera Vistas',
       callUs: 'Call us',
-      mapPending: 'The map will appear here once the location is added.',
       photos: 'Photos',
-      rsvp: 'Kindly RSVP',
-      rsvpBy: 'Please reply by {date}',
-      name: 'Your name',
-      phone: 'Mobile number (optional)',
-      phoneHint: 'If you reply again with the same number, your answer is updated.',
-      attending: 'Will you be joining us?',
-      yes: 'Yes, joyfully',
-      maybe: 'Not sure yet',
-      no: "Sorry, can't make it",
-      guests: 'Number of guests (including you)',
-      note: 'Note (optional)',
-      submit: 'Send reply',
-      sending: 'Sending…',
-      rsvpThanksYes: 'Thank you! We look forward to welcoming you.',
-      rsvpThanksNo: 'Thank you for letting us know. You will be missed!',
-      rsvpUpdated: 'Your reply has been updated. Thank you!',
-      needName: 'Please enter your name.',
-      needAttending: 'Please choose whether you can come.',
-      needMessage: 'Please write a blessing.',
-      blessings: 'Blessings',
-      blessingMsg: 'Your blessing',
-      sendBlessing: 'Send blessing',
-      blessThanks: 'Thank you for your blessing!',
-      noBlessings: 'Be the first to bless our new home.',
-      notConnected: 'Replies are not connected yet. Please contact the family directly.',
-      errorGeneric: 'Something went wrong. Please try again.',
-      errorBusy: 'Too many replies at once. Please try again in a minute.',
       footerThanks: 'Your presence is our greatest blessing.',
       share: 'Share on WhatsApp',
-      shareText: 'You are warmly invited to our Griha Pravesam (housewarming) on {date}. Timings, location & RSVP:',
+      shareText: 'You are warmly invited to our Griha Pravesam (housewarming) on {date}. Timings & location:',
     },
     ta: {
       withBlessings: 'இறையருளுடன்',
@@ -67,40 +39,12 @@
       addGoogle: 'Google நாட்காட்டி',
       addIcs: 'கைபேசி நாட்காட்டியில் சேர்க்க',
       venue: 'விழா நடைபெறும் இடம்',
-      directions: 'வழி காட்டு',
+      directions: 'குபேரா விஸ்டாஸ் செல்லும் வழி',
       callUs: 'அழைக்க',
-      mapPending: 'இடம் சேர்க்கப்பட்டதும் வரைபடம் இங்கே தோன்றும்.',
       photos: 'புகைப்படங்கள்',
-      rsvp: 'வருகையை உறுதிசெய்க',
-      rsvpBy: '{date}க்குள் பதில் அளிக்கவும்',
-      name: 'உங்கள் பெயர்',
-      phone: 'கைபேசி எண் (விருப்பம்)',
-      phoneHint: 'அதே எண்ணுடன் மீண்டும் அனுப்பினால் உங்கள் பதில் புதுப்பிக்கப்படும்.',
-      attending: 'நீங்கள் வருகிறீர்களா?',
-      yes: 'ஆம், மகிழ்ச்சியுடன்',
-      maybe: 'இன்னும் உறுதியில்லை',
-      no: 'வர இயலவில்லை',
-      guests: 'வருபவர்களின் எண்ணிக்கை (உங்களையும் சேர்த்து)',
-      note: 'குறிப்பு (விருப்பம்)',
-      submit: 'பதில் அனுப்பு',
-      sending: 'அனுப்புகிறது…',
-      rsvpThanksYes: 'நன்றி! உங்களை வரவேற்க ஆவலுடன் காத்திருக்கிறோம்.',
-      rsvpThanksNo: 'தெரிவித்ததற்கு நன்றி. உங்களை நினைவுகூர்வோம்!',
-      rsvpUpdated: 'உங்கள் பதில் புதுப்பிக்கப்பட்டது. நன்றி!',
-      needName: 'உங்கள் பெயரை உள்ளிடவும்.',
-      needAttending: 'வருகிறீர்களா என்பதைத் தேர்ந்தெடுக்கவும்.',
-      needMessage: 'உங்கள் வாழ்த்தை எழுதவும்.',
-      blessings: 'வாழ்த்துகள்',
-      blessingMsg: 'உங்கள் வாழ்த்து',
-      sendBlessing: 'வாழ்த்து அனுப்பு',
-      blessThanks: 'உங்கள் வாழ்த்துக்கு நன்றி!',
-      noBlessings: 'எங்கள் புதிய இல்லத்தை முதலில் வாழ்த்துங்கள்.',
-      notConnected: 'பதிவு இன்னும் இணைக்கப்படவில்லை. குடும்பத்தினரை நேரடியாகத் தொடர்பு கொள்ளவும்.',
-      errorGeneric: 'ஏதோ தவறு நடந்தது. மீண்டும் முயற்சிக்கவும்.',
-      errorBusy: 'ஒரே நேரத்தில் பல பதில்கள். ஒரு நிமிடம் கழித்து முயற்சிக்கவும்.',
       footerThanks: 'உங்கள் வருகையே எங்களுக்குப் பெரும் ஆசீர்வாதம்.',
       share: 'வாட்ஸ்அப்பில் பகிர',
-      shareText: '{date} அன்று நடைபெறும் எங்கள் புதுமனை புகுவிழாவிற்கு உங்களை அன்புடன் அழைக்கிறோம். நேரம், இடம் மற்றும் வருகை உறுதி:',
+      shareText: '{date} அன்று நடைபெறும் எங்கள் புதுமனை புகுவிழாவிற்கு உங்களை அன்புடன் அழைக்கிறோம். நேரம் மற்றும் இடம்:',
     },
   };
 
@@ -134,7 +78,6 @@
   function fmtTime(iso) { return fmt(iso, { hour: 'numeric', minute: '2-digit', hour12: true }); }
   function loadLang() { try { return localStorage.getItem('gp-lang'); } catch (e) { return null; } }
   function saveLang(l) { try { localStorage.setItem('gp-lang', l); } catch (e) { /* ignore */ } }
-  function backendReady() { return /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(C.backendUrl || ''); }
 
   /* ------------------------------------------------------------------ */
   /* Rendering                                                           */
@@ -163,14 +106,7 @@
       n.hidden = !v;
     });
 
-    var rsvpBy = $('#rsvpBy');
-    if (C.rsvpBy) {
-      rsvpBy.textContent = t('rsvpBy').replace('{date}', fmt(C.rsvpBy + 'T12:00:00+05:30', { day: 'numeric', month: 'long' }));
-      rsvpBy.hidden = false;
-    } else rsvpBy.hidden = true;
-
     renderEvents();
-    renderWallEmpty();
     document.title = (lang === 'ta' ? 'புதுமனை புகுவிழா' : 'Griha Pravesam') + (isPlaceholder(hosts) ? '' : ' · ' + hosts);
   }
 
@@ -267,23 +203,10 @@
   /* Venue, photos, contact                                              */
   /* ------------------------------------------------------------------ */
   function setupVenue() {
-    var q = (C.venue && C.venue.mapsQuery || '').trim();
-    var map = $('#map');
-    var dir = $('#directionsBtn');
-    if (q) {
-      var f = document.createElement('iframe');
-      f.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(q) + '&z=16&output=embed';
-      f.loading = 'lazy';
-      f.referrerPolicy = 'no-referrer-when-downgrade';
-      f.title = 'Map';
-      map.appendChild(f);
-      dir.href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(q);
-    } else {
-      var p = el('p', '', '');
-      p.setAttribute('data-i18n', 'mapPending');
-      map.appendChild(p);
-      dir.hidden = true;
-    }
+    // Exact coordinates if given; otherwise search by the venue's address.
+    var q = (C.venue && C.venue.mapsQuery || '').trim() ||
+      ('Kubhera Vistas, ' + (C.venue && C.venue.address && C.venue.address.en || '')).replace(/[\[\]]/g, '');
+    $('#directionsBtn').href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(q);
     var phone = (C.contactPhone || '').replace(/[^\d+]/g, '');
     if (phone) { var call = $('#callBtn'); call.href = 'tel:' + phone; call.hidden = false; }
   }
@@ -390,116 +313,6 @@
       lang = lang === 'ta' ? 'en' : 'ta';
       saveLang(lang);
       render();
-      loadBlessings();
-    });
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Backend calls                                                       */
-  /* ------------------------------------------------------------------ */
-  function post(payload) {
-    if (!backendReady()) return Promise.reject(new Error('not_connected'));
-    // text/plain avoids a CORS preflight, which Apps Script does not answer.
-    return fetch(C.backendUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload),
-    }).then(function (r) { return r.json(); }).then(function (j) {
-      if (!j || !j.ok) throw new Error((j && j.error) || 'error');
-      return j;
-    });
-  }
-
-  function errText(e) {
-    if (e && e.message === 'not_connected') return t('notConnected');
-    if (e && e.message === 'busy') return t('errorBusy');
-    return t('errorGeneric');
-  }
-  function setStatus(form, cls, msg) {
-    var s = $('.status', form);
-    s.className = 'status ' + (cls || '');
-    s.textContent = msg || '';
-  }
-
-  function setupRsvp() {
-    var form = $('#rsvpForm');
-    var guests = $('#guestsField');
-    form.addEventListener('change', function () {
-      var a = form.elements.attending.value;
-      guests.hidden = a === 'no';
-    });
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = form.elements.name.value.trim();
-      var attending = form.elements.attending.value;
-      if (!name) { setStatus(form, 'err', t('needName')); form.elements.name.focus(); return; }
-      if (!attending) { setStatus(form, 'err', t('needAttending')); return; }
-      var btn = $('button[type=submit]', form);
-      btn.disabled = true;
-      setStatus(form, '', t('sending'));
-      post({
-        type: 'rsvp',
-        name: name,
-        phone: form.elements.phone.value.trim(),
-        attending: attending,
-        guests: attending === 'no' ? 0 : parseInt(form.elements.guests.value, 10) || 1,
-        note: form.elements.note.value.trim(),
-        lang: lang,
-        website: form.elements.website.value,
-      }).then(function (res) {
-        setStatus(form, 'ok', res.updated ? t('rsvpUpdated') : (attending === 'no' ? t('rsvpThanksNo') : t('rsvpThanksYes')));
-        if (attending !== 'no') petals();
-      }).catch(function (err) {
-        setStatus(form, 'err', errText(err));
-      }).then(function () { btn.disabled = false; });
-    });
-  }
-
-  var blessings = [];
-  function renderWall() {
-    var wall = $('#wall');
-    wall.textContent = '';
-    if (!blessings.length) { renderWallEmpty(); return; }
-    blessings.forEach(function (b) {
-      var li = el('li');
-      li.appendChild(el('p', 'w-msg', b.message));
-      li.appendChild(el('p', 'w-name', '— ' + b.name));
-      wall.appendChild(li);
-    });
-  }
-  function renderWallEmpty() {
-    if (blessings.length) return;
-    var wall = $('#wall');
-    wall.textContent = '';
-    wall.appendChild(el('li', 'empty', t('noBlessings')));
-  }
-  function loadBlessings() {
-    if (!backendReady()) { renderWallEmpty(); return; }
-    fetch(C.backendUrl + '?action=blessings')
-      .then(function (r) { return r.json(); })
-      .then(function (j) { if (j && j.ok && Array.isArray(j.blessings)) { blessings = j.blessings; renderWall(); } })
-      .catch(function () { renderWallEmpty(); });
-  }
-
-  function setupBlessings() {
-    var form = $('#blessForm');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = form.elements.name.value.trim();
-      var message = form.elements.message.value.trim();
-      if (!name) { setStatus(form, 'err', t('needName')); form.elements.name.focus(); return; }
-      if (!message) { setStatus(form, 'err', t('needMessage')); form.elements.message.focus(); return; }
-      var btn = $('button[type=submit]', form);
-      btn.disabled = true;
-      setStatus(form, '', t('sending'));
-      post({ type: 'blessing', name: name, message: message, lang: lang, website: form.elements.website.value })
-        .then(function (res) {
-          setStatus(form, 'ok', t('blessThanks'));
-          if (res.visible !== false) { blessings.unshift({ name: name, message: message }); renderWall(); }
-          form.elements.message.value = '';
-        })
-        .catch(function (err) { setStatus(form, 'err', errText(err)); })
-        .then(function () { btn.disabled = false; });
     });
   }
 
@@ -514,11 +327,6 @@
   setupCover();
   setupShare();
   setupLang();
-  setupRsvp();
-  setupBlessings();
-  loadBlessings();
   tick();
   setInterval(tick, 1000);
-
-  if (!backendReady()) console.warn('[invite] backendUrl is not set in config.js — RSVP and blessings are disabled.');
 })();

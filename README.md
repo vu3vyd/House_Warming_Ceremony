@@ -19,7 +19,7 @@ photos/             put your photos here (optional)
 Replace every `[placeholder]`: names, house name, date and times, address, landmark.
 
 - **Times** use the format `2026-12-10T06:30:00+05:30`. Take the real muhurtham from your priest or panchangam. The countdown counts down to the first event.
-- **Map:** in Google Maps, long-press exactly on your gate and copy the coordinates (e.g. `11.01234, 76.95678`) into `venue.mapsQuery`. Coordinates work better than an address because new houses often aren't on Maps yet.
+- **Directions button:** in Google Maps, long-press exactly on your gate and copy the coordinates (e.g. `11.01234, 76.95678`) into `venue.mapsQuery`. If left empty, the button searches for the address instead. Coordinates work better than an address because new houses often aren't on Maps yet.
 - **Photos (optional):** copy images into `photos/`, then set `heroPhoto: "photos/house.jpg"` and add `gallery` entries. Resize them to about 1600 px wide first so the page loads fast on mobile data.
 - **Music (optional):** only use audio you have the right to use. Put the file in a `music/` folder and set `music: "music/yourfile.mp3"`.
 

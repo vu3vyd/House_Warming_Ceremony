@@ -6,8 +6,8 @@
   <!-- Keeps the invitation (and your address) out of search engines. -->
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#1e4a33">
-  <title>Griha Pravesam · புதுமனை புகுவிழா</title>
-  <meta property="og:title" content="Griha Pravesam · புதுமனை புகுவிழா">
+  <title>House Warming Event · புது இல்லம் புகும் இனிய விழா!</title>
+  <meta property="og:title" content="House Warming Event · புது இல்லம் புகும் இனிய விழா!">
   <meta property="og:description" content="You are warmly invited to our housewarming · புதுமனை புகுவிழாவிற்கு அன்புடன் அழைக்கிறோம்">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,8 +54,8 @@
     <div class="cover-inner">
       <p class="eyebrow" data-i18n="withBlessings">இறையருளுடன்</p>
       <h1 class="cover-title">
-        <span class="title-ta">புதுமனை புகுவிழா</span>
-        <span class="title-en">Griha Pravesam</span>
+        <span class="title-ta">புது இல்லம் புகும் இனிய விழா!</span>
+        <span class="title-en">House Warming Event</span>
       </h1>
       <div class="lamps" aria-hidden="true">
         <svg class="lamp"><use href="#lamp"/></svg>
@@ -135,9 +135,11 @@
         <p class="venue-name" data-c="venueName"></p>
         <p class="venue-addr" data-c="venueAddress"></p>
         <p class="venue-landmark" data-c="venueLandmark"></p>
-        <div class="map" id="map"></div>
+        <a class="btn primary wide directions" id="directionsBtn" target="_blank" rel="noopener">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 20.3l.7.7L12 18l6.8 3 .7-.7z" fill="currentColor"/></svg>
+          <span data-i18n="directions">குபேரா விஸ்டாஸ் செல்லும் வழி</span>
+        </a>
         <div class="btn-row">
-          <a class="btn primary" id="directionsBtn" target="_blank" rel="noopener" data-i18n="directions">வழி காட்டு</a>
           <a class="btn" id="callBtn" hidden data-i18n="callUs">அழைக்க</a>
         </div>
       </div>
@@ -147,56 +149,6 @@
     <section class="section" id="gallerySection" hidden aria-labelledby="hGallery">
       <h2 id="hGallery" data-i18n="photos">புகைப்படங்கள்</h2>
       <div class="gallery" id="gallery"></div>
-    </section>
-
-    <!-- RSVP -->
-    <section class="section" aria-labelledby="hRsvp">
-      <h2 id="hRsvp" data-i18n="rsvp">வருகையை உறுதிசெய்க</h2>
-      <form class="card form" id="rsvpForm" novalidate>
-        <p class="form-hint" id="rsvpBy"></p>
-        <label><span data-i18n="name">பெயர்</span>
-          <input name="name" required maxlength="60" autocomplete="name">
-        </label>
-        <label><span data-i18n="phone">கைபேசி எண் (விருப்பம்)</span>
-          <input name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel">
-          <small data-i18n="phoneHint">ஒரே எண்ணில் மீண்டும் அனுப்பினால் பதில் புதுப்பிக்கப்படும்.</small>
-        </label>
-        <fieldset>
-          <legend data-i18n="attending">நீங்கள் வருகிறீர்களா?</legend>
-          <div class="choices">
-            <label class="choice"><input type="radio" name="attending" value="yes" required><span data-i18n="yes">ஆம், வருகிறோம்</span></label>
-            <label class="choice"><input type="radio" name="attending" value="maybe"><span data-i18n="maybe">உறுதியில்லை</span></label>
-            <label class="choice"><input type="radio" name="attending" value="no"><span data-i18n="no">வர இயலவில்லை</span></label>
-          </div>
-        </fieldset>
-        <label id="guestsField"><span data-i18n="guests">வருபவர்களின் எண்ணிக்கை</span>
-          <input name="guests" type="number" min="1" max="20" value="1" inputmode="numeric">
-        </label>
-        <label><span data-i18n="note">குறிப்பு (விருப்பம்)</span>
-          <textarea name="note" rows="2" maxlength="300"></textarea>
-        </label>
-        <!-- Honeypot: hidden from people, filled by bots -->
-        <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
-        <button class="btn primary wide" type="submit" data-i18n="submit">அனுப்பு</button>
-        <p class="status" role="status"></p>
-      </form>
-    </section>
-
-    <!-- Blessings -->
-    <section class="section" aria-labelledby="hBless">
-      <h2 id="hBless" data-i18n="blessings">வாழ்த்துகள்</h2>
-      <form class="card form" id="blessForm" novalidate>
-        <label><span data-i18n="name">பெயர்</span>
-          <input name="name" required maxlength="60" autocomplete="name">
-        </label>
-        <label><span data-i18n="blessingMsg">உங்கள் வாழ்த்து</span>
-          <textarea name="message" rows="3" required maxlength="500"></textarea>
-        </label>
-        <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
-        <button class="btn primary wide" type="submit" data-i18n="sendBlessing">வாழ்த்து அனுப்பு</button>
-        <p class="status" role="status"></p>
-      </form>
-      <ul class="wall" id="wall" aria-live="polite"></ul>
     </section>
 
     <!-- Footer -->

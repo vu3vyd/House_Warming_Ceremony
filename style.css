@@ -176,55 +176,13 @@ html[lang="ta"] .event-title { font-family: var(--serif-ta); font-size: 19px; fo
 html[lang="ta"] .venue-name { font-family: var(--serif-ta); font-size: 19px; }
 .venue-addr { margin: 4px 0 0; }
 .venue-landmark { margin: 2px 0 12px; color: var(--muted); font-size: 14px; }
-.map {
-  margin-bottom: 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3;
-  background: #efe3c6; display: grid; place-items: center; text-align: center;
-  color: var(--muted); font-size: 14px; padding: 0;
-}
-.map iframe { width: 100%; height: 100%; border: 0; }
-.map p { padding: 16px; margin: 0; }
+.directions { gap: 10px; margin-bottom: 10px; }
+.nav-icon { width: 20px; height: 20px; flex: none; transform: rotate(45deg); }
 
 /* ---------- Gallery ---------- */
 .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .gallery button { padding: 0; border: 0; border-radius: 12px; overflow: hidden; cursor: zoom-in; aspect-ratio: 1; background: #eee; }
 .gallery img { width: 100%; height: 100%; object-fit: cover; }
-
-/* ---------- Forms ---------- */
-.form { padding: 18px; display: flex; flex-direction: column; gap: 14px; }
-.form label { display: flex; flex-direction: column; gap: 5px; font-weight: 600; font-size: 14px; color: var(--leaf); }
-.form small { font-weight: 400; color: var(--muted); font-size: 12.5px; }
-.form input:not([type=radio]), .form textarea {
-  width: 100%; padding: 11px 13px; border-radius: 10px;
-  border: 1px solid rgba(30,74,51,.25); background: #fff;
-  font: 400 16px var(--sans); color: var(--ink);
-}
-.form textarea { resize: vertical; }
-.form-hint { margin: 0; font-size: 14px; color: var(--kumkum); font-weight: 600; text-align: center; }
-fieldset { border: 0; margin: 0; padding: 0; }
-legend { font-weight: 600; font-size: 14px; color: var(--leaf); margin-bottom: 6px; padding: 0; }
-.choices { display: flex; flex-wrap: wrap; gap: 8px; }
-.choice { flex-direction: row !important; align-items: center; cursor: pointer; }
-.choice input { position: absolute; opacity: 0; pointer-events: none; }
-.choice span {
-  padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(30,74,51,.25);
-  background: #fff; font-weight: 500; color: var(--ink);
-}
-.choice input:checked + span { background: var(--leaf); color: #fff8e6; border-color: var(--leaf); }
-.choice input:focus-visible + span { outline: 3px solid var(--marigold); outline-offset: 2px; }
-.hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.status { margin: 0; min-height: 1.2em; text-align: center; font-weight: 600; font-size: 14px; }
-.status.ok { color: var(--leaf); }
-.status.err { color: var(--kumkum); }
-
-/* ---------- Blessings wall ---------- */
-.wall { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
-.wall li {
-  background: #fff; border-radius: 14px; padding: 12px 16px;
-  border-left: 4px solid var(--marigold); box-shadow: 0 4px 12px rgba(0,0,0,.05);
-}
-.wall .w-msg { margin: 0; white-space: pre-wrap; word-break: break-word; }
-.wall .w-name { margin: 4px 0 0; font-size: 13px; color: var(--muted); font-weight: 600; }
-.wall .empty { border: 1px dashed var(--line); border-left: 1px dashed var(--line); text-align: center; color: var(--muted); background: transparent; box-shadow: none; }
 
 /* ---------- Footer ---------- */
 .footer { margin-top: 48px; text-align: center; color: var(--muted); }
