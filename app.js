@@ -297,7 +297,13 @@
     function open() {
       petals();
       playMusic();
-      $('#main').scrollIntoView({ behavior: 'smooth' });
+      var main = $('#main');
+      main.scrollIntoView({ behavior: 'smooth' });
+      // Some phone browsers drop a smooth scroll when the page shifts (fonts,
+      // the hero GIF loading), so finish the jump if it didn't get there.
+      setTimeout(function () {
+        if (Math.abs(main.getBoundingClientRect().top) > 40) main.scrollIntoView({ behavior: 'instant' });
+      }, 1200);
     }
     $('#openBtn').addEventListener('click', open);
   }

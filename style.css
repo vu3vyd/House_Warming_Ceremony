@@ -52,9 +52,10 @@ html[lang="en"] .lang-toggle [data-lang-label="en"] { opacity: 1; color: var(--k
 
 /* ---------- Cover ---------- */
 .cover {
-  position: relative; min-height: 100svh; overflow: hidden;
+  /* Fill the visible screen; dvh follows the phone's address bar showing/hiding. */
+  position: relative; min-height: 100vh; min-height: 100dvh; overflow: hidden;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 90px 20px 60px; text-align: center; color: #fdf3dc;
+  padding: clamp(70px, 11vh, 90px) 20px clamp(28px, 6vh, 60px); text-align: center; color: #fdf3dc;
   background:
     radial-gradient(ellipse at 50% 40%, rgba(255, 214, 120, .18), transparent 60%),
     linear-gradient(180deg, #1b4430 0%, var(--leaf) 55%, #143323 100%);
@@ -84,6 +85,7 @@ html[lang="ta"] .cover-hosts { font-family: var(--serif-ta); font-size: clamp(22
   color: #fff4dc; font: 600 15px var(--sans); letter-spacing: .12em;
   box-shadow: 0 10px 26px rgba(0,0,0,.35);
   transition: transform .15s ease;
+  position: relative; z-index: 3; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
 }
 .open-btn:active { transform: scale(.97); }
 .chev { font-size: 20px; line-height: 1; animation: bob 1.6s ease-in-out infinite; }
@@ -92,6 +94,19 @@ html[lang="ta"] .cover-hosts { font-family: var(--serif-ta); font-size: clamp(22
   position: absolute; bottom: -120px; left: 50%; width: 420px; height: 240px; transform: translateX(-50%);
   border-radius: 50%; border: 2px dotted rgba(255, 244, 220, .25);
   box-shadow: 0 0 0 26px rgba(255,244,220,.04), 0 0 0 54px rgba(255,244,220,.03);
+  pointer-events: none;
+}
+/* Short screens (small phones, or tall browser bars): tighten the cover so the
+   "Tap to open" button stays on screen. */
+@media (max-height: 720px) {
+  .eyebrow { margin-bottom: 8px; }
+  .title-ta { font-size: clamp(28px, 8vw, 40px); }
+  .title-en { font-size: clamp(22px, 5.6vw, 30px); }
+  .lamps { margin: 12px 0 10px; }
+  .lamps .lamp { width: 24px; height: 38px; }
+  .cover-hosts { font-size: clamp(22px, 6vw, 30px); }
+  html[lang="ta"] .cover-hosts { font-size: clamp(19px, 5.4vw, 26px); }
+  .cover-date { margin-bottom: 18px; }
 }
 
 /* ---------- Main layout ---------- */
