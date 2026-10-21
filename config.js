@@ -77,10 +77,10 @@ window.INVITE = {
 
   // ---- Contact (optional) ---------------------------------------------------
   // Shown as a "Call us" button. Leave "" to hide.
-  contactPhone: "",
+  contactPhone: "+91-9952242291",
 
   // Public address of this page (used in the WhatsApp share message).
-  siteUrl: "https://[your-github-username].github.io/[repo-name]/",
+  siteUrl: "https://vu3vyd.github.io/House_Warming_Ceremony/",
 
   hashtag: "#[OurNewHome]",
 };
