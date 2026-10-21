@@ -10,7 +10,7 @@ window.INVITE = {
 
   // ---- Who is inviting -----------------------------------------------------
   hosts: {
-    en: "Vivekanantha, Sindhu, Maithraya and Thigalvi",
+    en: "Vivekanantha, Sindhu, Maithraye and Thigalvi",
     ta: "விவேகானந்தா, சிந்து, மைத்ரேயி, திகழ்வி",
   },
   // Line shown under the names (e.g. "and family"). Leave "" to hide.
