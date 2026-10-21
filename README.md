@@ -19,6 +19,7 @@ photos/      pictures used on the page
 - **Times** use the format `2026-12-10T06:30:00+05:30`. The countdown counts down to the first event. Add `muhurtham: true` to an event to show a MUHURTHAM badge on it.
 - **Directions button:** in Google Maps, long-press exactly on your gate and copy the coordinates (e.g. `11.01234, 76.95678`) into `venue.mapsQuery`. If left empty, the button searches for the address instead. Coordinates work better than an address because new houses often aren't on Maps yet.
 - **Top picture:** `heroPhoto` is set to `photos/family.gif`. To use a different picture, copy it into `photos/` and change `heroPhoto` to its path (e.g. `"photos/house.jpg"`), or set it to `""` for the built-in house illustration. File names are case-sensitive on GitHub Pages.
+- **Link preview picture:** the image shown when the link is shared (WhatsApp etc.) is `photos/preview.jpg`, set in the `og:image` lines of `index.html`. It must be a still JPG or PNG under about 300 KB. To replace it, overwrite that file; WhatsApp may keep showing the old preview for links it has already seen.
 - **Photo gallery (optional):** copy images into `photos/` and add `gallery` entries. Resize them to about 1600 px wide first so the page loads fast on mobile data.
 - **Music (optional):** only use audio you have the right to use. Put the file in a `music/` folder and set `music: "music/yourfile.mp3"`.
 - **Call button (optional):** set `contactPhone`, or leave it `""` to hide the button.
