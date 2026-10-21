@@ -224,6 +224,9 @@ html[lang="ta"] .venue-name { font-family: var(--serif-ta); font-size: 19px; }
 .venue-landmark { margin: 2px 0 12px; color: var(--muted); font-size: 14px; }
 .directions { gap: 10px; margin-bottom: 10px; }
 .nav-icon { width: 20px; height: 20px; flex: none; transform: rotate(45deg); }
+.call-icon { width: 20px; height: 20px; flex: none; }
+.call-number { font-weight: 500; opacity: .85; white-space: nowrap; }
+.call-number::before { content: "· "; }
 
 /* ---------- Gallery ---------- */
 .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }

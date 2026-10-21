@@ -210,7 +210,12 @@
       ('Kubhera Vistas, ' + (C.venue && C.venue.address && C.venue.address.en || '')).replace(/[\[\]]/g, '');
     $('#directionsBtn').href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(q);
     var phone = (C.contactPhone || '').replace(/[^\d+]/g, '');
-    if (phone) { var call = $('#callBtn'); call.href = 'tel:' + phone; call.hidden = false; }
+    if (phone) {
+      var call = $('#callBtn');
+      call.href = 'tel:' + phone;
+      $('#callNumber').textContent = C.contactPhone.trim();
+      call.hidden = false;
+    }
   }
 
   function setupPhotos() {
