@@ -115,6 +115,7 @@ html[lang="ta"] .section h2 { font-size: 24px; }
 /* ---------- Hero ---------- */
 .hero { overflow: hidden; }
 .hero-media img, .house-art { width: 100%; height: auto; display: block; }
+.hero-media { background: #fdf1d8; }
 .hero-media img { cursor: zoom-in; }
 .hero-body { padding: 20px 22px 24px; text-align: center; }
 .house-name { margin: 0 0 6px; font-family: var(--serif-en); font-size: 24px; font-style: italic; color: var(--kumkum); font-weight: 600; }

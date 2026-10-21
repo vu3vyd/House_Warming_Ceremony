@@ -1,6 +1,5 @@
 /* ==========================================================================
    YOUR DETAILS GO HERE — this is the only file you need to edit.
-   Every value in [square brackets] is a placeholder. Replace it.
    Each text has an English (en) and Tamil (ta) version.
    ========================================================================== */
 window.INVITE = {
@@ -26,12 +25,11 @@ window.INVITE = {
 
   // ---- Invitation message ---------------------------------------------------
   message: {
-    en: "To bless our new home, And to blend your happiness with ours, We lovingly invite your gracious presence, Heartfelt blessings, and good wishes To partake in our feast and grace our Griha Pravesham (Housewarming) ceremony! Your presence is the true grace of our home! 🙏🙏🙏",
-    ta: "எங்கள் இல்லம் சிறக்க, எங்கள் மகிழ்வில் உங்கள் மகிழ்வும் கலக்க, அன்பும் ஆசியும் மனமார வழங்கி, இனிய விருந்தினை ஏற்று, இந்த இனிய புதுமனை புகுவிழாவை சிறப்பிக்க, அன்பான உ(ள்ள)ங்களை உளமார அழைக்கின்றோம்! தங்கள் வருகையே எங்கள் இல்லத்தின் சிறப்பு! 🙏🙏🙏",
+    en: "To bless our new home, And to blend your happiness with ours, We lovingly invite your gracious presence, Heartfelt blessings, and good wishes To partake in our feast and grace our House-warming🏡 ceremony! Your presence is the true grace of our home! 🙏🙏🙏",
+    ta: "எங்கள் இல்லம் சிறக்க, எங்கள் மகிழ்வில் உங்கள் மகிழ்வும் கலக்க, அன்பும் ஆசியும் மனமார வழங்கி, இனிய விருந்தினை ஏற்று, இந்த இனிய புதுமனை புகுவிழாவை🏡 சிறப்பிக்க, அன்பான உ(ள்ள)ங்களை உளமார அழைக்கின்றோம்! தங்கள் வருகையே எங்கள் இல்லத்தின் சிறப்பு! 🙏🙏🙏",
   },
 
   // ---- Ceremonies -----------------------------------------------------------
-  // PLACEHOLDER DATE/TIMES — set the real muhurtham from your priest/panchangam.
   // Format: "YYYY-MM-DDTHH:MM:00+05:30". The countdown uses the first event.
   events: [
     {
@@ -52,14 +50,14 @@ window.INVITE = {
 
   // ---- Venue (your new home) -----------------------------------------------
   venue: {
-    name:    { en: "[F28, Kubhera Vistas]", ta: "[F28, குபேரா விஸ்டாஸ்]" },
-    address: { en: "[College Road, Saravanampatti, Coimbatore – 641035]",
-               ta: "[காலேஜ் ரோடு, சரவணம்பட்டி, கோயம்புத்தூர் – 641035]" },
+    name:    { en: "🏡F28, Kubhera Vistas", ta: "🏡F28, குபேரா விஸ்டாஸ்" },
+    address: { en: "College Road, Saravanampatti, Coimbatore – 641035",
+               ta: "காலேஜ் ரோடு, சரவணம்பட்டி, கோயம்புத்தூர் – 641035" },
     // Best: exact coordinates, because new houses are often not on Google Maps yet.
     // In Google Maps, long-press your gate → copy the "11.0xxx, 76.9xxx" numbers here.
-    mapsQuery: "",
-    landmark: { en: "[Landmark — Near Sankara Polytechnic College]",
-                ta: "[அடையாளம் — சங்கர பாலிடெக்னிக் கல்லூரிக்கு அருகில்]" },
+    mapsQuery: "11.088343849533162, 76.98926556779746",
+    landmark: { en: "Landmark — Near Sankara Polytechnic College",
+                ta: "அடையாளம் — சங்கர பாலிடெக்னிக் கல்லூரிக்கு அருகில்" },
   },
 
   // ---- Photos ---------------------------------------------------------------
@@ -83,5 +81,4 @@ window.INVITE = {
   // Public address of this page (used in the WhatsApp share message).
   siteUrl: "https://vu3vyd.github.io/House_Warming_Ceremony/",
 
-  hashtag: "#[OurNewHome]",
 };

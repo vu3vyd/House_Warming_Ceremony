@@ -1,4 +1,4 @@
-/* Griha Pravesam invitation — front end logic. You normally don't need to edit this file. */
+/* House-warming Function invitation — front end logic. You normally don't need to edit this file. */
 (function () {
   'use strict';
 
@@ -25,7 +25,7 @@
       photos: 'Photos',
       footerThanks: 'Your presence is our greatest blessing.',
       share: 'Share on WhatsApp',
-      shareText: 'You are warmly invited to our Griha Pravesam (housewarming) on {date}. Timings & location:',
+      shareText: 'You are warmly invited to our House-warming Function on {date}. Timings & location:',
     },
     ta: {
       withBlessings: 'இறையருளுடன்',
@@ -107,7 +107,7 @@
     });
 
     renderEvents();
-    document.title = (lang === 'ta' ? 'புதுமனை புகுவிழா' : 'Griha Pravesam') + (isPlaceholder(hosts) ? '' : ' · ' + hosts);
+    document.title = (lang === 'ta' ? 'புதுமனை புகுவிழா' : 'House-warming Function') + (isPlaceholder(hosts) ? '' : ' · ' + hosts);
   }
 
   function renderEvents() {
@@ -141,7 +141,7 @@
   /* ------------------------------------------------------------------ */
   function utcStamp(iso) { return new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
   function venueText() { return [pick(C.venue && C.venue.name), pick(C.venue && C.venue.address)].filter(Boolean).join(', '); }
-  function eventTitle(ev) { return pick(ev.title) + ' — ' + (lang === 'ta' ? 'புதுமனை புகுவிழா' : 'Griha Pravesam'); }
+  function eventTitle(ev) { return pick(ev.title) + ' — ' + (lang === 'ta' ? 'புதுமனை புகுவிழா' : 'House-warming Function'); }
 
   function googleCalUrl(ev) {
     var p = new URLSearchParams({
@@ -157,9 +157,9 @@
   function icsEscape(s) { return String(s || '').replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/([,;])/g, '\\$1'); }
   function downloadIcs(ev) {
     var lines = [
-      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//GrihaPravesam//Invite//EN', 'CALSCALE:GREGORIAN',
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Housewarming//Invite//EN', 'CALSCALE:GREGORIAN',
       'BEGIN:VEVENT',
-      'UID:' + utcStamp(ev.start) + '-' + Math.random().toString(36).slice(2) + '@griha-pravesam',
+      'UID:' + utcStamp(ev.start) + '-' + Math.random().toString(36).slice(2) + '@housewarming',
       'DTSTAMP:' + utcStamp(new Date().toISOString()),
       'DTSTART:' + utcStamp(ev.start),
       'DTEND:' + utcStamp(ev.end),
@@ -172,7 +172,7 @@
     var blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'griha-pravesam.ics';
+    a.download = 'housewarming.ics';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
   }
@@ -213,15 +213,17 @@
 
   function setupPhotos() {
     if (C.heroPhoto) {
+      // Show the photo straight away so a large GIF appears while it downloads;
+      // if it fails to load, put the illustration back.
+      var media = $('#heroMedia');
+      var art = media.innerHTML;
       var img = new Image();
       img.alt = '';
-      img.onload = function () {
-        var media = $('#heroMedia');
-        media.textContent = '';
-        media.appendChild(img);
-        img.addEventListener('click', function () { openLightbox(C.heroPhoto, ''); });
-      };
-      img.src = C.heroPhoto; // if it fails to load, the illustration stays
+      img.onerror = function () { media.innerHTML = art; };
+      img.addEventListener('click', function () { openLightbox(C.heroPhoto, ''); });
+      img.src = C.heroPhoto;
+      media.textContent = '';
+      media.appendChild(img);
     }
     var g = C.gallery || [];
     if (!g.length) return;
