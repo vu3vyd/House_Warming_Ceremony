@@ -67,9 +67,36 @@ html[lang="en"] .lang-toggle [data-lang-label="en"] { opacity: 1; color: var(--k
   color: #f6d78a;
 }
 html[lang="ta"] .eyebrow { letter-spacing: .08em; font-size: 15px; }
-.cover-title { display: flex; flex-direction: column; gap: 4px; line-height: 1.15; }
-.title-ta { font-family: var(--serif-ta); font-size: clamp(34px, 9vw, 52px); color: #ffe7a6; font-weight: 700; }
-.title-en { font-family: var(--serif-en); font-size: clamp(26px, 6.5vw, 38px); font-style: italic; font-weight: 600; color: #fdf3dc; }
+.cover-title { position: relative; margin: 2px 0; }
+/* Only the title in the chosen language is shown. */
+html[lang="ta"] .title-en, html[lang="en"] .title-ta { display: none; }
+/* Gold glitter: a moving gold gradient inside the letters, with a soft glow. */
+.title-ta, .title-en {
+  display: block; font-weight: 700;
+  color: #ffe7a6; /* fallback if gradient text isn't supported */
+  background: linear-gradient(100deg, #b8860b 0%, #ffe9a3 18%, #d4a017 34%, #fff7d6 50%, #c9971c 66%, #ffe08a 82%, #b8860b 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .35)) drop-shadow(0 0 12px rgba(255, 196, 64, .35));
+  animation: goldShimmer 4.5s linear infinite;
+}
+/* Gradient text only paints inside the element's box, and Tamil vowel signs
+   reach above and below the line, so give the letters room on every side. */
+.title-ta { font-family: var(--serif-ta); font-size: clamp(34px, 9vw, 52px); line-height: 1.6; padding: .2em .12em .25em; }
+.title-en { font-family: var(--serif-en); font-size: clamp(38px, 10.5vw, 60px); line-height: 1.3; padding: .12em .1em .18em; }
+@keyframes goldShimmer { to { background-position: -250% 0; } }
+/* Twinkling glitter specks over the title */
+.cover-title::after {
+  content: ""; position: absolute; inset: -6px -10px; pointer-events: none;
+  background:
+    radial-gradient(circle, #fff 0 1.2px, transparent 2px) 12% 22% / 46px 38px,
+    radial-gradient(circle, #ffe9a3 0 1px, transparent 1.8px) 63% 71% / 58px 44px,
+    radial-gradient(circle, #fff7d6 0 1.4px, transparent 2.2px) 37% 55% / 71px 52px;
+  mix-blend-mode: screen; opacity: .9;
+  animation: twinkle 2.2s ease-in-out infinite alternate;
+}
+@keyframes twinkle { from { opacity: .15; } to { opacity: .95; } }
 .lamps { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 22px 0 18px; color: #d9a524; }
 .lamp { width: 30px; height: 48px; }
 .lamps .divider { color: var(--turmeric); font-size: 14px; }
@@ -101,7 +128,7 @@ html[lang="ta"] .cover-hosts { font-family: var(--serif-ta); font-size: clamp(22
 @media (max-height: 720px) {
   .eyebrow { margin-bottom: 8px; }
   .title-ta { font-size: clamp(28px, 8vw, 40px); }
-  .title-en { font-size: clamp(22px, 5.6vw, 30px); }
+  .title-en { font-size: clamp(32px, 9vw, 46px); }
   .lamps { margin: 12px 0 10px; }
   .lamps .lamp { width: 24px; height: 38px; }
   .cover-hosts { font-size: clamp(22px, 6vw, 30px); }
@@ -284,7 +311,7 @@ html.cover-open .celebrate-btn { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .chev, .celebrate-btn { animation: none; }
+  .chev, .celebrate-btn, .title-ta, .title-en, .cover-title::after { animation: none; }
   .cover.leaving { transition-duration: .2s; }
 }
 @media (min-width: 720px) {

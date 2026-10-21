@@ -6,14 +6,21 @@
   <!-- Keeps the invitation (and your address) out of search engines. -->
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#1e4a33">
-  <title>House-warming Function · புது இல்லம் புகும் இனிய விழா!</title>
-  <meta property="og:title" content="House-warming Function · புது இல்லம் புகும் இனிய விழா!">
+  <title>புது இல்லம் புகும் இனிய விழா! · House-warming Function!</title>
+  <meta property="og:title" content="புது இல்லம் புகும் இனிய விழா! · House-warming Function!">
   <meta property="og:description" content="You are warmly invited to our House-warming Function · புதுமனை புகுவிழாவிற்கு அன்புடன் அழைக்கிறோம்">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mukta+Malar:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <!-- Load style.css, config.js and app.js with the page's publish time on the
+       URL, so phones (iPhone Safari especially) never mix a new page with old,
+       saved copies of these files. -->
+  <script>
+    var V = encodeURIComponent(document.lastModified);
+    document.write('<link rel="stylesheet" href="style.css?v=' + V + '">');
+  </script>
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
   <!-- Show the cover as a full-screen panel until "Tap to open". If app.js
        never starts, open it anyway after a few seconds so the page is usable. -->
   <script>
@@ -183,7 +190,8 @@
     <p class="lb-cap"></p>
   </div>
 
-  <script src="config.js"></script>
-  <script src="app.js"></script>
+  <script>
+    document.write('<script src="config.js?v=' + V + '"><\/script><script src="app.js?v=' + V + '"><\/script>');
+  </script>
 </body>
 </html>
