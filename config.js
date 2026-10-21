@@ -63,9 +63,10 @@ window.INVITE = {
   },
 
   // ---- Photos ---------------------------------------------------------------
-  // Put image files in the "photos" folder. Leave heroPhoto "" to show the
-  // built-in house illustration instead.
-  heroPhoto: "",
+  // Top picture of the invite. To change it, put a new file (.gif, .jpg, .png
+  // or .webp) in the "photos" folder and put its path here, e.g.
+  // "photos/house-front.jpg". Leave "" to show the built-in house illustration.
+  heroPhoto: "photos/family.gif",
   gallery: [
     // { src: "photos/house-front.jpg", caption: { en: "Our new home", ta: "எங்கள் புதிய இல்லம்" } },
   ],
