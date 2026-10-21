@@ -278,16 +278,15 @@
   // turned on, just lighter.
   function reducedMotion() { return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
 
+  // Flower shower: hibiscus, cherry blossom, yellow blossom, rosette and white flower.
   function petals() {
-    var colors = ['#f08c1a', '#f6b71b', '#e3a81b', '#d9442b', '#fff1c4', '#c2185b'];
+    var flowers = ['🌺', '🌷', '🌼', '🏵️', '💐', '🌼', '🌺', '🌸', '🌹', '🌸'];
     var box = el('div', 'petals');
-    for (var i = 0, n = reducedMotion() ? 16 : 42; i < n; i++) {
-      var p = el('span', 'petal');
-      var size = 10 + Math.random() * 10;
-      p.style.left = Math.random() * 100 + 'vw';
-      p.style.width = size + 'px';
-      p.style.height = size * 1.3 + 'px';
-      p.style.background = colors[i % colors.length];
+    box.setAttribute('aria-hidden', 'true');
+    for (var i = 0, n = reducedMotion() ? 16 : 40; i < n; i++) {
+      var p = el('span', 'petal', flowers[i % flowers.length]);
+      p.style.left = (Math.random() * 96) + 'vw';
+      p.style.fontSize = (16 + Math.random() * 16) + 'px';
       p.style.animationDuration = 3.5 + Math.random() * 3 + 's';
       p.style.animationDelay = Math.random() * 1.8 + 's';
       p.style.setProperty('--drift', (Math.random() * 160 - 80) + 'px');
