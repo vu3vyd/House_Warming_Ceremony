@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ta">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Keeps the invitation (and your address) out of search engines. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1e4a33">
+  <title>Griha Pravesam · புதுமனை புகுவிழா</title>
+  <meta property="og:title" content="Griha Pravesam · புதுமனை புகுவிழா">
+  <meta property="og:description" content="You are warmly invited to our housewarming · புதுமனை புகுவிழாவிற்கு அன்புடன் அழைக்கிறோம்">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mukta+Malar:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Shared SVG symbols -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <!-- Mango-leaf thoranam with marigolds -->
+      <pattern id="thoranam" width="44" height="64" patternUnits="userSpaceOnUse">
+        <path d="M0 6 Q22 14 44 6" fill="none" stroke="#c98a14" stroke-width="2"/>
+        <path d="M22 10 C12 26 14 44 22 58 C30 44 32 26 22 10 Z" fill="#2f7a4a"/>
+        <path d="M22 12 L22 56" stroke="#1b4d2e" stroke-width="1.2"/>
+        <circle cx="0" cy="9" r="5.5" fill="#f08c1a"/>
+        <circle cx="44" cy="9" r="5.5" fill="#f08c1a"/>
+        <circle cx="0" cy="9" r="2.2" fill="#e3b21a"/>
+        <circle cx="44" cy="9" r="2.2" fill="#e3b21a"/>
+      </pattern>
+      <!-- Kuthuvilakku (lamp) -->
+      <symbol id="lamp" viewBox="0 0 40 64">
+        <path d="M20 2 C15 9 16 14 20 16 C24 14 25 9 20 2 Z" fill="#f6b71b"/>
+        <path d="M20 6 C18 10 18.6 12.6 20 13.6 C21.4 12.6 22 10 20 6 Z" fill="#fff1c4"/>
+        <path d="M8 18 Q20 26 32 18 L30 22 Q20 28 10 22 Z" fill="currentColor"/>
+        <rect x="18" y="24" width="4" height="26" rx="2" fill="currentColor"/>
+        <ellipse cx="20" cy="36" rx="5" ry="2.2" fill="currentColor"/>
+        <path d="M9 58 Q20 48 31 58 Z" fill="currentColor"/>
+        <rect x="7" y="58" width="26" height="4" rx="2" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Language switch -->
+  <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">
+    <span data-lang-label="ta">தமிழ்</span><span class="sep">|</span><span data-lang-label="en">EN</span>
+  </button>
+
+  <!-- ============== COVER ============== -->
+  <section class="cover" id="cover">
+    <svg class="thoranam" aria-hidden="true"><rect width="100%" height="64" fill="url(#thoranam)"/></svg>
+    <div class="cover-inner">
+      <p class="eyebrow" data-i18n="withBlessings">இறையருளுடன்</p>
+      <h1 class="cover-title">
+        <span class="title-ta">புதுமனை புகுவிழா</span>
+        <span class="title-en">Griha Pravesam</span>
+      </h1>
+      <div class="lamps" aria-hidden="true">
+        <svg class="lamp"><use href="#lamp"/></svg>
+        <span class="divider">✦</span>
+        <svg class="lamp"><use href="#lamp"/></svg>
+      </div>
+      <p class="cover-invite" data-i18n="coverInvite">அன்புடன் அழைக்கிறோம்</p>
+      <p class="cover-hosts" data-c="hosts"></p>
+      <p class="cover-date" data-c="mainDate"></p>
+      <button class="open-btn" id="openBtn" type="button">
+        <span data-i18n="tapToOpen">திறக்க தொடவும்</span>
+        <span class="chev" aria-hidden="true">⌄</span>
+      </button>
+    </div>
+    <div class="cover-kolam" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============== MAIN ============== -->
+  <main class="invite" id="main">
+
+    <!-- Hero -->
+    <section class="card hero">
+      <div class="hero-media" id="heroMedia">
+        <!-- Built-in house illustration (replaced if heroPhoto is set) -->
+        <svg class="house-art" viewBox="0 0 360 250" role="img" aria-label="Illustration of a new home">
+          <rect width="360" height="250" fill="#fdf1d8"/>
+          <circle cx="292" cy="58" r="26" fill="#f6c34a" opacity=".85"/>
+          <path d="M0 214 H360 V250 H0 Z" fill="#e9d6a8"/>
+          <path d="M70 116 L180 44 L290 116 Z" fill="#9e1b2a"/>
+          <path d="M60 120 L180 40 L300 120" fill="none" stroke="#6e1220" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="84" y="116" width="192" height="98" fill="#fffaf0" stroke="#d9c49a" stroke-width="2"/>
+          <rect x="84" y="116" width="192" height="16" fill="url(#thoranam)"/>
+          <rect x="155" y="146" width="50" height="68" rx="25" ry="25" fill="#1e4a33"/>
+          <rect x="155" y="170" width="50" height="44" fill="#1e4a33"/>
+          <circle cx="196" cy="186" r="2.6" fill="#e3b21a"/>
+          <rect x="102" y="146" width="34" height="32" fill="#f7e2a8" stroke="#1e4a33" stroke-width="3"/>
+          <path d="M119 146 V178 M102 162 H136" stroke="#1e4a33" stroke-width="2"/>
+          <rect x="224" y="146" width="34" height="32" fill="#f7e2a8" stroke="#1e4a33" stroke-width="3"/>
+          <path d="M241 146 V178 M224 162 H258" stroke="#1e4a33" stroke-width="2"/>
+          <!-- kolam at the doorstep -->
+          <g transform="translate(180 230)" fill="none" stroke="#fffaf0" stroke-width="2">
+            <ellipse rx="44" ry="10"/><ellipse rx="28" ry="6"/><ellipse rx="12" ry="3"/>
+          </g>
+          <g fill="#fffaf0"><circle cx="146" cy="230" r="2"/><circle cx="214" cy="230" r="2"/><circle cx="180" cy="221" r="2"/><circle cx="180" cy="239" r="2"/></g>
+          <!-- lamps by the door -->
+          <svg x="132" y="182" width="18" height="30" style="color:#b9871b"><use href="#lamp"/></svg>
+          <svg x="210" y="182" width="18" height="30" style="color:#b9871b"><use href="#lamp"/></svg>
+          <!-- banana trees -->
+          <g fill="#2f7a4a"><path d="M50 214 C46 170 40 150 26 136 C44 142 52 156 56 176 C60 150 70 138 86 132 C70 150 62 176 60 214 Z"/>
+          <path d="M310 214 C314 170 320 150 334 136 C316 142 308 156 304 176 C300 150 290 138 274 132 C290 150 298 176 300 214 Z"/></g>
+        </svg>
+      </div>
+      <div class="hero-body">
+        <p class="house-name" data-c="houseName"></p>
+        <p class="message" data-c="message"></p>
+        <p class="chip" data-c="mainDate"></p>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div><b id="cdD">0</b><span data-i18n="days">நாட்கள்</span></div>
+          <div><b id="cdH">0</b><span data-i18n="hours">மணி</span></div>
+          <div><b id="cdM">0</b><span data-i18n="minutes">நிமிடம்</span></div>
+          <div><b id="cdS">0</b><span data-i18n="seconds">விநாடி</span></div>
+        </div>
+        <p class="countdown-done" id="countdownDone" hidden></p>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section class="section" aria-labelledby="hEvents">
+      <h2 id="hEvents" data-i18n="events">நிகழ்ச்சிகள்</h2>
+      <ol class="events" id="events"></ol>
+    </section>
+
+    <!-- Venue -->
+    <section class="section" aria-labelledby="hVenue">
+      <h2 id="hVenue" data-i18n="venue">விழா நடைபெறும் இடம்</h2>
+      <div class="card venue">
+        <p class="venue-name" data-c="venueName"></p>
+        <p class="venue-addr" data-c="venueAddress"></p>
+        <p class="venue-landmark" data-c="venueLandmark"></p>
+        <div class="map" id="map"></div>
+        <div class="btn-row">
+          <a class="btn primary" id="directionsBtn" target="_blank" rel="noopener" data-i18n="directions">வழி காட்டு</a>
+          <a class="btn" id="callBtn" hidden data-i18n="callUs">அழைக்க</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" id="gallerySection" hidden aria-labelledby="hGallery">
+      <h2 id="hGallery" data-i18n="photos">புகைப்படங்கள்</h2>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section" aria-labelledby="hRsvp">
+      <h2 id="hRsvp" data-i18n="rsvp">வருகையை உறுதிசெய்க</h2>
+      <form class="card form" id="rsvpForm" novalidate>
+        <p class="form-hint" id="rsvpBy"></p>
+        <label><span data-i18n="name">பெயர்</span>
+          <input name="name" required maxlength="60" autocomplete="name">
+        </label>
+        <label><span data-i18n="phone">கைபேசி எண் (விருப்பம்)</span>
+          <input name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel">
+          <small data-i18n="phoneHint">ஒரே எண்ணில் மீண்டும் அனுப்பினால் பதில் புதுப்பிக்கப்படும்.</small>
+        </label>
+        <fieldset>
+          <legend data-i18n="attending">நீங்கள் வருகிறீர்களா?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="attending" value="yes" required><span data-i18n="yes">ஆம், வருகிறோம்</span></label>
+            <label class="choice"><input type="radio" name="attending" value="maybe"><span data-i18n="maybe">உறுதியில்லை</span></label>
+            <label class="choice"><input type="radio" name="attending" value="no"><span data-i18n="no">வர இயலவில்லை</span></label>
+          </div>
+        </fieldset>
+        <label id="guestsField"><span data-i18n="guests">வருபவர்களின் எண்ணிக்கை</span>
+          <input name="guests" type="number" min="1" max="20" value="1" inputmode="numeric">
+        </label>
+        <label><span data-i18n="note">குறிப்பு (விருப்பம்)</span>
+          <textarea name="note" rows="2" maxlength="300"></textarea>
+        </label>
+        <!-- Honeypot: hidden from people, filled by bots -->
+        <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
+        <button class="btn primary wide" type="submit" data-i18n="submit">அனுப்பு</button>
+        <p class="status" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Blessings -->
+    <section class="section" aria-labelledby="hBless">
+      <h2 id="hBless" data-i18n="blessings">வாழ்த்துகள்</h2>
+      <form class="card form" id="blessForm" novalidate>
+        <label><span data-i18n="name">பெயர்</span>
+          <input name="name" required maxlength="60" autocomplete="name">
+        </label>
+        <label><span data-i18n="blessingMsg">உங்கள் வாழ்த்து</span>
+          <textarea name="message" rows="3" required maxlength="500"></textarea>
+        </label>
+        <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
+        <button class="btn primary wide" type="submit" data-i18n="sendBlessing">வாழ்த்து அனுப்பு</button>
+        <p class="status" role="status"></p>
+      </form>
+      <ul class="wall" id="wall" aria-live="polite"></ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <svg class="lamp small" aria-hidden="true"><use href="#lamp"/></svg>
+      <p data-i18n="footerThanks">உங்கள் வருகையே எங்களுக்குப் பெரும் ஆசீர்வாதம்.</p>
+      <p class="footer-hosts" data-c="hostsWithLine"></p>
+      <button class="btn whatsapp" id="shareBtn" type="button" data-i18n="share">வாட்ஸ்அப்பில் பகிர</button>
+      <p class="hashtag" data-c="hashtag"></p>
+    </footer>
+  </main>
+
+  <!-- Music toggle -->
+  <button class="music-btn" id="musicBtn" type="button" hidden aria-pressed="false" aria-label="Music">♪</button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" type="button" aria-label="Close">×</button>
+    <img alt="">
+    <p class="lb-cap"></p>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
