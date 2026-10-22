@@ -220,17 +220,39 @@
 
   function setupPhotos() {
     if (C.heroPhoto) {
-      // Show the photo straight away so a large GIF appears while it downloads;
-      // if it fails to load, put the illustration back.
       var media = $('#heroMedia');
       var art = media.innerHTML;
-      var img = new Image();
-      img.alt = '';
-      img.onerror = function () { media.innerHTML = art; };
-      img.addEventListener('click', function () { openLightbox(C.heroPhoto, ''); });
-      img.src = C.heroPhoto;
+      var restore = function () { media.innerHTML = art; };
       media.textContent = '';
-      media.appendChild(img);
+      if (/\.(mp4|webm|mov)$/i.test(C.heroPhoto)) {
+        // Silent looping video: far smaller than a GIF. The poster still shows
+        // instantly and stays if the phone won't autoplay (e.g. Low Power Mode).
+        var v = document.createElement('video');
+        v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+        v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
+        v.setAttribute('preload', 'auto');
+        v.setAttribute('aria-label', 'Our family at the entrance of our new home');
+        if (C.heroPoster) v.poster = C.heroPoster;
+        v.onerror = function () {
+          if (!C.heroPoster) { restore(); return; }
+          var still = new Image(); still.alt = ''; still.onerror = restore; still.src = C.heroPoster;
+          media.textContent = ''; media.appendChild(still);
+        };
+        v.src = C.heroPhoto;
+        media.appendChild(v);
+        var tryPlay = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+        tryPlay();
+        v.addEventListener('click', tryPlay); // tap to start if autoplay was blocked
+      } else {
+        // Show the photo straight away so a large GIF appears while it downloads;
+        // if it fails to load, put the illustration back.
+        var img = new Image();
+        img.alt = '';
+        img.onerror = restore;
+        img.addEventListener('click', function () { openLightbox(C.heroPhoto, ''); });
+        img.src = C.heroPhoto;
+        media.appendChild(img);
+      }
     }
     var g = C.gallery || [];
     if (!g.length) return;

@@ -159,9 +159,12 @@ html[lang="ta"] .section h2 { font-size: 24px; }
 
 /* ---------- Hero ---------- */
 .hero { overflow: hidden; }
-.hero-media img, .house-art { width: 100%; height: auto; display: block; }
+.hero-media img, .hero-media video, .house-art { width: 100%; height: auto; display: block; }
 .hero-media { background: #fdf1d8; }
 .hero-media img { cursor: zoom-in; }
+/* Keep the 4:3 space reserved while the video loads (no jump), and on
+   landscape phones fit the whole frame in ~3/4 of the screen (no cropping). */
+.hero-media video { aspect-ratio: 4 / 3; object-fit: contain; max-height: 75vh; max-height: 75svh; }
 .hero-body { padding: 20px 22px 24px; text-align: center; }
 .house-name { margin: 0 0 6px; font-family: var(--serif-en); font-size: 24px; font-style: italic; color: var(--kumkum); font-weight: 600; }
 html[lang="ta"] .house-name { font-family: var(--serif-ta); font-style: normal; font-size: 20px; }

@@ -61,10 +61,13 @@ window.INVITE = {
   },
 
   // ---- Photos ---------------------------------------------------------------
-  // Top picture of the invite. To change it, put a new file (.gif, .jpg, .png
-  // or .webp) in the "photos" folder and put its path here, e.g.
-  // "photos/house-front.jpg". Leave "" to show the built-in house illustration.
-  heroPhoto: "photos/family.gif",
+  // Top picture of the invite. Put a file in the "photos" folder and put its
+  // path here: a photo (.jpg, .png, .webp, .gif) or a short silent video
+  // (.mp4). A video loads ~10x faster than the same animation as a GIF.
+  // Leave "" to show the built-in house illustration.
+  heroPhoto: "photos/family.mp4",
+  // Still picture shown while the video loads (and if it can't play).
+  heroPoster: "photos/preview.jpg",
   gallery: [
     // { src: "photos/house-front.jpg", caption: { en: "Our new home", ta: "எங்கள் புதிய இல்லம்" } },
   ],
