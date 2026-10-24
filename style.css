@@ -90,16 +90,26 @@ html[lang="ta"] .title-en, html[lang="en"] .title-ta { display: none; }
 .title-en { font-family: var(--serif-en); font-size: clamp(38px, 10.5vw, 60px); line-height: 1.3; padding: .12em .1em .18em; }
 @keyframes goldShimmer { 0% { background-position: 100% 0; } 65%, 100% { background-position: 0% 0; } }
 /* Sparkling stars around the title (added by app.js) */
+/* Visible even if the phone pauses animations (e.g. iPhone Low Power Mode);
+   the animation only adds the twinkle on top. */
 .sparkle {
-  position: absolute; z-index: 1; pointer-events: none; line-height: 1;
-  color: #fffbe8; text-shadow: 0 0 6px #ffd76a, 0 0 14px rgba(255, 200, 80, .9);
-  opacity: 0; animation: sparkle 2.4s ease-in-out infinite;
+  position: absolute; z-index: 3; pointer-events: none; line-height: 1;
+  color: #fffbe8; text-shadow: 0 0 4px #fff, 0 0 8px #ffd76a, 0 0 16px rgba(255, 200, 80, .95);
+  opacity: .9; will-change: transform, opacity;
+  -webkit-animation: sparkle 2.4s ease-in-out infinite; animation: sparkle 2.4s ease-in-out infinite;
+}
+@-webkit-keyframes sparkle {
+  0%, 100% { opacity: .15; -webkit-transform: scale(.35) rotate(0deg); }
+  45% { opacity: 1; -webkit-transform: scale(1.1) rotate(80deg); }
+  70% { opacity: .3; -webkit-transform: scale(.45) rotate(140deg); }
 }
 @keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(.2) rotate(0deg); }
-  45% { opacity: 1; transform: scale(1) rotate(80deg); }
-  70% { opacity: 0; transform: scale(.3) rotate(140deg); }
+  0%, 100% { opacity: .15; transform: scale(.35) rotate(0deg); }
+  45% { opacity: 1; transform: scale(1.1) rotate(80deg); }
+  70% { opacity: .3; transform: scale(.45) rotate(140deg); }
 }
+/* Reduce Motion: no spinning or growing, just a soft fade in and out. */
+@keyframes sparkleFade { from { opacity: .25; } to { opacity: 1; } }
 .lamps { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 22px 0 18px; color: #d9a524; }
 .lamp { width: 30px; height: 48px; }
 .lamps .divider { color: var(--turmeric); font-size: 14px; }
@@ -320,8 +330,8 @@ html.cover-open .celebrate-btn { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .chev, .celebrate-btn, .sparkle { animation: none; }
-  .sparkle { display: none; }
+  .chev, .celebrate-btn { animation: none; }
+  .sparkle { -webkit-animation: none; animation: sparkleFade 2.2s ease-in-out infinite alternate; }
   .title-ta, .title-en { animation-duration: 6s; } /* gentler, but still glitters */
   .cover.leaving { transition-duration: .2s; }
 }

@@ -392,11 +392,11 @@
   function addSparkles() {
     var title = $('.cover-title');
     for (var i = 0; i < 10; i++) {
-      var s = el('span', 'sparkle', '✦');
+      var s = el('span', 'sparkle', '✦︎'); // ✦ drawn as text, never as an emoji
       s.setAttribute('aria-hidden', 'true');
       s.style.left = (4 + Math.random() * 88) + '%';
       s.style.top = (Math.random() * 90) + '%';
-      s.style.fontSize = (10 + Math.random() * 12) + 'px';
+      s.style.fontSize = (13 + Math.random() * 12) + 'px';
       s.style.animationDelay = (Math.random() * 2.4).toFixed(2) + 's';
       s.style.animationDuration = (1.8 + Math.random() * 1.4).toFixed(2) + 's';
       title.appendChild(s);
